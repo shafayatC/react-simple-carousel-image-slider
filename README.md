@@ -1,4 +1,4 @@
-# react-simple-image-slider
+# react-simple-carousel-image-slider
 
 [![ReactJs][react-image]][react-url]
 [![Download Count][download-image]][download-url]
@@ -98,6 +98,7 @@ If You want to see more detail source,<br>
 |  **infinity**  |  `Boolean`  | `Optional` | Infinity image slide                                                                                                                                  | true     |
 |    **autoplay**     |  `Boolean`  | `Optional` | Auto play slider<br>                                                                                                                                  | true       |
 |     **autplayDelay**     |  `Number`  | `Optional` | Auto play slide delay time                                                                                                                                                        | 3000        |
+|     **parallax**     |  `Boolean`  | `Optional` | Parallax slider image                                                                                                                                                         | false        |
 
 If You want to see more detail,<br>
 
