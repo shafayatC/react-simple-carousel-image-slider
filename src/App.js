@@ -1,7 +1,7 @@
 
-//import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
+import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
 
-import SimpleCarouselSlider from './components/rscis/SimpleCarouselSlider';
+//import SimpleCarouselSlider from './components/rscis/SimpleCarouselSlider';
 
 function App() {
 
@@ -17,28 +17,8 @@ function App() {
       <div style={{ width: "1100px", margin: "auto" }}>
         <SimpleCarouselSlider
           images={images}
-          autoplay={false}
-          parallax={true}
+          autoplay={false} 
         />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     </div>
   );
