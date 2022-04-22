@@ -9,7 +9,7 @@
 [download-image]: https://img.shields.io/npm/dm/react-simple-carousel-image-slider?label=downlaod
 [download-url]: https://www.npmjs.com/package/react-simple-carousel-image-slider
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
-[license-url]: https://github.com/kimcoder/react-simple-image-slider/blob/master/LICENSE
+[license-url]: https://github.com/shafayatC/react-simple-carousel-image-slider/blob/main/LICENSE
 
 Simple Carousel Image Slider Component for ReactJS v18<br>
 
@@ -17,11 +17,9 @@ Simple Carousel Image Slider Component for ReactJS v18<br>
 - Support GPU Render, by default.
 - Support Image Preload.
 - Support SSR. ( server-side-rendering )
-- Selectable Navigation Styles.
-
 # Live demo
 
-  ![demo gif](https://github.com/kimcoder/react-simple-image-slider/raw/master/demo.gif)
+  ![demo gif](https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/slider.gif)
 
 # Install
 
@@ -66,7 +64,8 @@ const App = () => {
 import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
 
   const images = [
-
+"https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/1.jpg",
+"https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/5.jpg"
   ];
 
 const App = () => {
