@@ -21,6 +21,14 @@ Simple Carousel Image Slider Component for ReactJS v18<br>
 
   ![demo gif](https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/slider.gif)
 
+
+# Video Tutorial
+
+[![Video tutorial][video-image]][video-url]
+
+[video-image]: https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/tube.jpg
+[video-url]: https://youtu.be/piVIv3OeGCg
+
 # Install
 
 ```
