@@ -20,6 +20,8 @@ Simple Carousel Image Slider Component for ReactJS v18<br>
 # Live demo
 
   ![demo gif](https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/slider.gif)
+  <br>
+  
 [`live demo link`](https://shafayatc.github.io/react-simple-carousel-image-slider/)<br>
 
 
