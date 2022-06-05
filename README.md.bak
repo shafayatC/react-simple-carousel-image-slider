@@ -20,17 +20,6 @@ Simple Carousel Image Slider Component for ReactJS v18<br>
 # Live demo
 
   ![demo gif](https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/slider.gif)
-  <br>
-  
-[`live demo link`](https://shafayatc.github.io/react-simple-carousel-image-slider/)<br>
-
-
-# Video Tutorial
-
-[![Video tutorial][video-image]][video-url]
-
-[video-image]: https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/tube.jpg
-[video-url]: https://youtu.be/piVIv3OeGCg
 
 # Install
 
@@ -45,7 +34,8 @@ yarn add react-simple-carousel-image-slider
 # Usage
 ##### image load from local storage.
 ```
-import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
+import {SimpleCarouselSlider} from 'react-simple-carousel-image-slider';
+import 'react-simple-carousel-image-slider/dist/index.css';
 
   const images = [
     require('./img/1.jpg'),
@@ -72,7 +62,8 @@ const App = () => {
 ##### image load from website.
 
  ```
-import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
+import {SimpleCarouselSlider} from 'react-simple-carousel-image-slider';
+import 'react-simple-carousel-image-slider/dist/index.css';
 
   const images = [
 "https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/1.jpg",
@@ -133,4 +124,4 @@ If You want to see more detail,<br>
 
 # License
 
-MIT © [shafayatC](https://github.com/shafayatC)
+MIT

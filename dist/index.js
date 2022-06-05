@@ -3,7 +3,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 
-var styles = {"easySliderShs1":"_1uwTh","essSlide":"_17tem","essSliderCls":"_2Y-TT","essParalax":"_1E1nI","essNext":"_290N2","essPrev":"_3_rel"};
+var styles = {"easySliderShs1":"_styles-module__easySliderShs1__1uwTh","essSlide":"_styles-module__essSlide__17tem","essSliderCls":"_styles-module__essSliderCls__2Y-TT","essParalax":"_styles-module__essParalax__1E1nI","essNext":"_styles-module__essNext__290N2","essPrev":"_styles-module__essPrev__3_rel"};
 
 var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
   var images = props.images;
@@ -29,10 +29,13 @@ var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
     var second_slide = document.getElementById("essSecond");
 
     var sld = function sld() {
-      first_slide.style.transition = "0s";
-      second_slide.style.transition = "0s";
-      first_slide.style.transform = "translate3d(0%, 0px, 0px)";
-      second_slide.style.transform = "translate3d(100%, 0px, 0px)";
+      if (!parallax) {
+        first_slide.style.transition = "0s";
+        second_slide.style.transition = "0s";
+        first_slide.style.transform = "translate3d(0%, 0px, 0px)";
+        second_slide.style.transform = "translate3d(100%, 0px, 0px)";
+      }
+
       second_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
       setTimeout(nextSlide, deley);
     };
@@ -53,10 +56,13 @@ var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
     var second_slide = document.getElementById("essSecond");
 
     var sld = function sld() {
-      first_slide.style.transition = "0s";
-      second_slide.style.transition = "0s";
-      first_slide.style.transform = "translate3d(0%, 0px, 0px)";
-      second_slide.style.transform = "translate3d(-100%, 0px, 0px)";
+      if (!parallax) {
+        first_slide.style.transition = "0s";
+        second_slide.style.transition = "0s";
+        first_slide.style.transform = "translate3d(0%, 0px, 0px)";
+        second_slide.style.transform = "translate3d(-100%, 0px, 0px)";
+      }
+
       second_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
       setTimeout(prevSlide, deley);
     };
@@ -77,8 +83,12 @@ var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
     var second_slide = document.getElementById("essSecond");
     first_slide.style.transition = duration;
     second_slide.style.transition = duration;
-    first_slide.style.transform = "translate3d(-100%, 0px, 0px)";
-    second_slide.style.transform = "translate3d(0%, 0px, 0px)";
+
+    if (!parallax) {
+      first_slide.style.transform = "translate3d(-100%, 0px, 0px)";
+      second_slide.style.transform = "translate3d(0%, 0px, 0px)";
+    }
+
     setTimeout(function () {
       first_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
     }, 100);
@@ -89,8 +99,12 @@ var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
     var second_slide = document.getElementById("essSecond");
     first_slide.style.transition = duration;
     second_slide.style.transition = duration;
-    first_slide.style.transform = "translate3d(100%, 0px, 0px)";
-    second_slide.style.transform = "translate3d(0%, 0px, 0px)";
+
+    if (!parallax) {
+      first_slide.style.transform = "translate3d(100%, 0px, 0px)";
+      second_slide.style.transform = "translate3d(0%, 0px, 0px)";
+    }
+
     setTimeout(function () {
       first_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
     }, 100);
@@ -99,9 +113,11 @@ var SimpleCarouselSlider = function SimpleCarouselSlider(props) {
   React.useEffect(function () {
     var slideParrentDiv = document.getElementById("essSlide");
     var first_slide = document.getElementById("essFirst");
+    var second_slide = document.getElementById("essSecond");
     slideParrentDiv.style.width = width;
     slideParrentDiv.style.height = height;
     first_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
+    second_slide.style.backgroundImage = "url(" + images[currentSlide] + ")";
 
     if (slideAutoPlay) {
       setInterval(function () {

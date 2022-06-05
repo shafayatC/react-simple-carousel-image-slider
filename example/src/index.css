@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+section {
+  height: 100vh;
+  background: #a1cba2;
+}
+table {
+  margin: auto;
+  padding: 50px 0;
+}
+tr {}
+th, td {
+  min-width: 130px;
+  padding: 15px 5px;
+  border-bottom: thin solid #315732;
+  border-right: thin solid #315732;
+}
+th {border-top: thin solid #315732;}
+th:first-child, td:first-child { border-left: thin solid #315732;}

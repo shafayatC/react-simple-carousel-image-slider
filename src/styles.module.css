@@ -1,23 +1,23 @@
 /* add css module styles here (optional) */
 
-._styles-module__easySliderShs1__1uwTh{ position: relative;}
-._styles-module__essSlide__17tem{
+.easySliderShs1{ position: relative;}
+.essSlide{
     overflow: hidden;
     position: relative;
 }
-._styles-module__essSliderCls__2Y-TT {
+.essSliderCls {
     width: 100%;
     height: 100%;
     position: absolute;
     background-size: 100%;
 }
-._styles-module__essParalax__1E1nI {
+.essParalax {
   background-attachment: fixed;
   background-position: center;
   transition: all 0.7s ease 0s;
 }
 /* controller */
-._styles-module__essNext__290N2, ._styles-module__essPrev__3_rel {
+.essNext, .essPrev {
   top: 47%;
   position: absolute;
   width: 50px;
@@ -27,8 +27,8 @@
   opacity: 0.6;
   border:none; 
 }
-._styles-module__essNext__290N2 {left: 20px}
-._styles-module__essPrev__3_rel {
+.essNext {left: 20px}
+.essPrev {
   right: 20px;
 }
-._styles-module__essNext__290N2:hover, ._styles-module__essPrev__3_rel:hover {opacity: 0.8;}
+.essNext:hover, .essPrev:hover {opacity: 0.8;}

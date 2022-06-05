@@ -1,6 +1,6 @@
 {
   "name": "react-simple-carousel-image-slider",
-  "version": "1.0.34",
+  "version": "1.0.32",
   "description": "Simple Carousel Image Slider Component for ReactJS",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
