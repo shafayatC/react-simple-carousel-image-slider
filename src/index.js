@@ -4,17 +4,8 @@ import styles from './styles.module.css'
 
 
 
-export const SimpleCarouselSlider = (props) => {
+export const SimpleCarouselSlider = ({ images, width = "100%", height = "500px", duration = "0.7s", deley = 100, infinity = true, autoplay = true, autoPlayTime = 3000, parallax = false, responsive, thumb = false }) => {
 
-    var images = props.images;
-    var width = props.width ? props.width : "100%";
-    var height = props.height ? props.height : "500px";
-    var duration = props.duration ? props.duration : "0.7s";
-    var deley = props.deley ? props.deley : 100;
-    var infinity = props.infinity == false ? false : true;
-    var slideAutoPlay = props.autoplay == false ? false : true;
-    var autoPlayTime = props.autplayDelay ? props.autplayDelay : 3000;
-    var parallax = props.parallax == true ? true : false;
     var currentSlide = 0;
     var AutoPlaySlideWaitTime = 0;
 
@@ -35,13 +26,14 @@ export const SimpleCarouselSlider = (props) => {
 
         const sld = () => {
             // if parallax true then stop left right movement
-            if (!parallax) {
+            if (!parallax && first_slide != null && second_slide != null) {
                 first_slide.style.transition = "0s";
                 second_slide.style.transition = "0s";
                 first_slide.style.transform = "translate3d(0%, 0px, 0px)";
                 second_slide.style.transform = "translate3d(100%, 0px, 0px)";
             }
-            second_slide.style.backgroundImage = `url(${images[currentSlide]})`;
+
+            second_slide != null ? second_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
 
             setTimeout(nextSlide, deley);
         }
@@ -65,14 +57,14 @@ export const SimpleCarouselSlider = (props) => {
 
         const sld = () => {
 
-            if (!parallax) {
+            if (!parallax && first_slide != null && second_slide != null) {
                 first_slide.style.transition = "0s";
                 second_slide.style.transition = "0s";
                 first_slide.style.transform = "translate3d(0%, 0px, 0px)";
                 second_slide.style.transform = "translate3d(-100%, 0px, 0px)";
             }
 
-            second_slide.style.backgroundImage = `url(${images[currentSlide]})`;
+            second_slide != null ? second_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
 
             setTimeout(prevSlide, deley);
         }
@@ -95,16 +87,16 @@ export const SimpleCarouselSlider = (props) => {
         const first_slide = document.getElementById("essFirst");
         const second_slide = document.getElementById("essSecond");
 
-        first_slide.style.transition = duration;
-        second_slide.style.transition = duration;
+        first_slide != null ? first_slide.style.transition = duration : '';
+        second_slide != null ? second_slide.style.transition = duration : '';
 
-        if (!parallax) {
+        if (!parallax && first_slide != null && second_slide != null) {
             first_slide.style.transform = "translate3d(-100%, 0px, 0px)";
             second_slide.style.transform = "translate3d(0%, 0px, 0px)";
         }
 
         setTimeout(() => {
-            first_slide.style.backgroundImage = `url(${images[currentSlide]})`;
+            first_slide != null ? first_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
         }, 100)
 
     }
@@ -115,10 +107,10 @@ export const SimpleCarouselSlider = (props) => {
         const first_slide = document.getElementById("essFirst");
         const second_slide = document.getElementById("essSecond");
 
-        first_slide.style.transition = duration;
-        second_slide.style.transition = duration;
-        
-        if (!parallax) {
+        first_slide != null ? first_slide.style.transition = duration : '';
+        second_slide != null ? second_slide.style.transition = duration : '';
+
+        if (!parallax && first_slide != null && second_slide != null) {
             first_slide.style.transform = "translate3d(100%, 0px, 0px)";
             second_slide.style.transform = "translate3d(0%, 0px, 0px)";
         }
@@ -129,7 +121,69 @@ export const SimpleCarouselSlider = (props) => {
 
     }
 
+    const eesThumbonClick = (imgIndex) => {
+        console.log(imgIndex)
+        currentSlide = imgIndex;
+
+        const first_slide = document.getElementById("essFirst");
+        const second_slide = document.getElementById("essSecond");
+
+        const sld = () => {
+            // if parallax true then stop left right movement
+            if (!parallax && first_slide != null && second_slide != null) {
+                first_slide.style.transition = "0s";
+                second_slide.style.transition = "0s";
+                first_slide.style.transform = "translate3d(0%, 0px, 0px)";
+                second_slide.style.transform = "translate3d(100%, 0px, 0px)";
+            }
+
+            second_slide != null ? second_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
+
+            setTimeout(nextSlide, deley);
+        }
+
+        sld();
+
+        autoPlayWait()
+    }
+
     useEffect(() => {
+
+        if (responsive != undefined) {
+
+            for (let i = 0; i < responsive.length; i++) {
+                console.log(i)
+                var media_query = "";
+                if (i > 0) {
+                    media_query = `screen and (min-width:${responsive[i - 1].breakPoint}px) and (max-width:${responsive[i].breakPoint}px)`;
+                } else {
+                    media_query = `screen and  (max-width:${responsive[i].breakPoint}px)`;
+                }
+
+                // matched or not
+                var matched = window.matchMedia(media_query).matches;
+
+                if (matched) {
+                    if (responsive[i].height != undefined) {
+                        height = responsive[i].height;
+                    }
+                    if (responsive[i].width != undefined) {
+                        width = responsive[i].width;
+                    }
+                    if (responsive[i].parallax != undefined) {
+                        parallax = responsive[i].parallax;
+                    }
+                    if (responsive[i].duration != undefined) {
+                        duration = responsive[i].duration;
+                    }
+                    if (responsive[i].autoplay != undefined) {
+                        autoplay = responsive[i].autoplay;
+                    }
+                }
+
+            }
+        }
+
         // html finder
         const slideParrentDiv = document.getElementById("essSlide")
         const first_slide = document.getElementById("essFirst");
@@ -137,16 +191,17 @@ export const SimpleCarouselSlider = (props) => {
 
 
         // parrent style
-        slideParrentDiv.style.width = width;
-        slideParrentDiv.style.height = height;
+
+        slideParrentDiv != null ? slideParrentDiv.style.width = width : '';
+        slideParrentDiv != null ? slideParrentDiv.style.height = height : '';
 
         // slider 
-        first_slide.style.backgroundImage = `url(${images[currentSlide]})`;
-        second_slide.style.backgroundImage = `url(${images[currentSlide]})`;
+        first_slide != null ? first_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
+        second_slide != null ? second_slide.style.backgroundImage = `url(${images[currentSlide]})` : '';
 
         // autoplay 
 
-        if (slideAutoPlay) {
+        if (autoplay) {
 
             setInterval(() => {
 
@@ -162,7 +217,8 @@ export const SimpleCarouselSlider = (props) => {
 
         }
 
-    }, [])
+    }, [images])
+
     return (
 
         <div id="easySliderShs1" className={styles.easySliderShs1}>
@@ -172,9 +228,19 @@ export const SimpleCarouselSlider = (props) => {
                 <div className={parallax ? `${styles.essParalax} ${styles.essSliderCls}` : styles.essSliderCls} id="essSecond"></div>
             </div>
             <div id="essController">
-                <button id="essNext" className={styles.essNext} onClick={nextBtn}>  ⮜</button>
-                <button id="essPrev" className={styles.essPrev} onClick={prevBtn}> ⮞ </button>
+                <button id="essPrev" className={styles.essPrev} onClick={prevBtn}>  ⮜</button>
+                <button id="essNext" className={styles.essNext} onClick={nextBtn}> ⮞ </button>
             </div>
+            {
+            thumb &&
+                <div id="essSliderThumb" className={styles.essSliderThumb}>
+                    {images.map((data, index) =>
+                        <button className={styles.essThumbButton} onClick={() => eesThumbonClick(index)}>
+                            <img className={styles.essThumbImg} src={data} />
+                        </button>
+                    )}
+                </div>
+                }
 
         </div>
     );

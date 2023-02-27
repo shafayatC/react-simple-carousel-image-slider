@@ -24,8 +24,36 @@
   opacity: 0.6;
   border:none; 
 }
-#essNext {left: 20px}
+#essNext {right: 20px}
 #essPrev {
-  right: 20px;
+  left: 20px;
 }
 #essNext:hover, #essPrev:hover {opacity: 0.8;}
+
+.essSliderThumb{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+.essThumbButton{
+  display: flex;
+  border: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  overflow: hidden;
+  width: 100px;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.essThumbImg{
+  align-self: center;
+  min-height: 100%;
+  min-width: 100%;
+}

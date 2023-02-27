@@ -43,9 +43,11 @@ yarn add react-simple-carousel-image-slider
 ```
 
 # Usage
-##### image load from local storage.
-```
-import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
+##### example 1 :  image load from local storage.
+```js
+import { SimpleCarouselSlider } from 'react-simple-carousel-image-slider'
+import 'react-simple-carousel-image-slider/dist/index.css'
+
 
   const images = [
     require('./img/1.jpg'),
@@ -68,11 +70,11 @@ const App = () => {
   );
 }
 ```
-**or**
-##### image load from website.
+##### example 2 :  image load from website.
 
- ```
-import SimpleCarouselSlider from 'react-simple-carousel-image-slider';
+ ```js
+import { SimpleCarouselSlider } from 'react-simple-carousel-image-slider'
+import 'react-simple-carousel-image-slider/dist/index.css'
 
   const images = [
 "https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/1.jpg",
@@ -93,6 +95,42 @@ const App = () => {
 }
 ```
 
+##### example 3 : responsive.
+
+
+ ```js
+import { SimpleCarouselSlider } from 'react-simple-carousel-image-slider'
+import 'react-simple-carousel-image-slider/dist/index.css'
+
+  const images = [
+"https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/1.jpg",
+"https://raw.githubusercontent.com/shafayatC/react-simple-carousel-image-slider/main/src/img/5.jpg"
+  ];
+
+const App = () => {
+  return (
+    <div>
+      <SimpleCarouselSlider images={images} autoplay={false} width= "100%" height="450px"
+       responsive={[
+          {
+            breakPoint: 420,
+            height: "300px",
+            parallax: false
+          },
+          {
+            breakPoint: 600,
+            height: "400px",
+          },
+          {
+            breakPoint: 1000,
+            height: "500px"
+          }
+        ]}
+      />
+    </div>
+  );
+}
+```
 
 If You want to see more detail source,<br>
 
@@ -102,14 +140,26 @@ If You want to see more detail source,<br>
 
 |        Name         |    Type    |  Required  | Description                                                                                                                                                       | Default   |
 | :-----------------: | :--------: | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------- |
-|      **width**      |  `Number`  | `Optional` | Image Slider Width                                                                                                                                                |           |
-|     **height**      |  `Number`  | `Optional` | Image Slider Height                                                                                                                                               |           |
+|      **width**      |  `String`  | `Optional` | Image Slider Width                                                                                                                                                |           |
+|     **height**      |  `String`  | `Optional` | Image Slider Height                                                                                                                                               |           |
 |     **images**      |  `Array`   | `Required` | Images,<br>Array Elements should be like this structure,<br/>{"image.jpg", ""image2.jpg}                                                                              |           |
 |      **duration**      |  `String`  | `Optional` | css object                                                                                                                                                        |      0.7s     |
 |  **infinity**  |  `Boolean`  | `Optional` | Infinity image slide                                                                                                                                  | true     |
 |    **autoplay**     |  `Boolean`  | `Optional` | Auto play slider<br>                                                                                                                                  | true       |
 |     **autplayDelay**     |  `Number`  | `Optional` | Auto play slide delay time                                                                                                                                                        | 3000        |
 |     **parallax**     |  `Boolean`  | `Optional` | Parallax slider image                                                                                                                                                         | false        |
+|     **thumb**     |  `Boolean`  | `Optional` | Slider thumbnail                                                                                                                                                         | false        |
+|     **responsive**      |  `Array`   | `Optional` |  |      responsive by media query    | 
+
+
+**responsive** _object details bellow :_
+1. breakPoint : 'number for media query'
+2. height : 'string'
+3. width : 'string'
+4. parallax : 'boolean'
+5. duration : 'string'
+6. autoplay : 'boolean'
+
 
 If You want to see more detail,<br>
 
@@ -127,6 +177,10 @@ If You want to see more detail,<br>
 .essController { // do something }
 .essNext { // do something }
 .essPrev { // do something }
+
+/* thumb */ 
+#essSliderThumb  { // do something }
+
 
 ```
 

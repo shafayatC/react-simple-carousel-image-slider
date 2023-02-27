@@ -13,8 +13,9 @@ code {
     monospace;
 }
 section {
-  height: 100vh;
+  height: 100%;
   background: #a1cba2;
+  margin-top: 100px;
 }
 table {
   margin: auto;
@@ -29,3 +30,7 @@ th, td {
 }
 th {border-top: thin solid #315732;}
 th:first-child, td:first-child { border-left: thin solid #315732;}
+.optionInfo{
+  margin: auto;
+  padding: 0 0 40px 103px;
+}
